@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آيات وطبيعة - مزيج القرآن الفاخر</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🌧️ آيات وطبيعة</h1>
+            <p>تلاوات خاشعة مع مزيج مخصص من أصوات المطر والطبيعة</p>
+        </header>
+
+        <!-- قسم مشغل القرآن -->
+        <div class="card">
+            <h2>📖 التلاوة القرآنية</h2>
+            
+            <div class="select-group">
+                <label for="surahSelect">اختر السورة:</label>
+                <select id="surahSelect">
+                    <option value="https://server11.mp3quran.net/sds/056.mp3">سورة الواقعة - عبد الرحمن السديس</option>
+                    <option value="https://server11.mp3quran.net/sds/067.mp3">سورة الملك - عبد الرحمن السديس</option>
+                </select>
+            </div>
+
+            <!-- خانة اختيار ملف MP3 من الجهاز مباشرة -->
+            <div class="add-surah-box">
+                <label>📁 أضف سورة من ملفات جهازك:</label>
+                <input type="text" id="customNameInput" placeholder="اكتب اسم السورة والقارئ هنا...">
+                
+                <!-- زر يفتح ملفات الجهاز لاختيار ملف MP3 -->
+                <div class="file-upload-wrapper">
+                    <label for="mp3FileInput" class="file-upload-btn">📂 اضغط هنا لاختيار ملف MP3 من الجهاز</label>
+                    <input type="file" id="mp3FileInput" accept="audio/mp3, audio/*">
+                </div>
+                <span id="fileNameDisplay" class="file-name-info">لم يتم اختيار أي ملف</span>
+                
+                <button id="addSurahBtn" class="btn secondary-btn" style="margin-top: 10px;">إضافة الملف للقائمة وحفظه</button>
+            </div>
+            
+            <audio id="quranAudio" loop></audio>
+            
+            <div class="player-controls">
+                <button id="quranPlayBtn" class="btn primary-btn">تشغيل القرآن</button>
+            </div>
+            
+            <div class="volume-control">
+                <label for="quranVolume">مستوى صوت القرآن:</label>
+                <input type="range" id="quranVolume" min="0" max="1" step="0.1" value="0.8">
+            </div>
+        </div>
+
+        <!-- قسم أصوات الطبيعة (مع صوت رياح معدل وأكثر هدوءاً) -->
+        <div class="card">
+            <h2>🎧 أصوات الخلفية (المكسر)</h2>
+
+            <!-- صوت المطر -->
+            <div class="ambient-item">
+                <div class="ambient-info">
+                    <span>🌧️ مطر خفيف</span>
+                    <button class="ambient-toggle" data-target="rainAudio">تشغيل</button>
+                </div>
+                <input type="range" class="volume-slider" data-target="rainAudio" min="0" max="1" step="0.1" value="0.4">
+                <audio id="rainAudio" loop src="https://assets.mixkit.co/active_storage/sfx/1255/1255-preview.mp3"></audio>
+            </div>
+
+            <!-- صوت الرعد -->
+            <div class="ambient-item">
+                <div class="ambient-info">
+                    <span>⚡ رعد وعواصف</span>
+                    <button class="ambient-toggle" data-target="thunderAudio">تشغيل</button>
+                </div>
+                <input type="range" class="volume-slider" data-target="thunderAudio" min="0" max="1" step="0.1" value="0.3">
+                <audio id="thunderAudio" loop src="https://assets.mixkit.co/active_storage/sfx/1297/1297-preview.mp3"></audio>
+            </div>
+
+            <!-- صوت الرياح والهواء (تم تعديله لصوت نقي وهادئ) -->
+            <div class="ambient-item">
+                <div class="ambient-info">
+                    <span>💨 هواء ورياح هادئة</span>
+                    <button class="ambient-toggle" data-target="windAudio">تشغيل</button>
+                </div>
+                <input type="range" class="volume-slider" data-target="windAudio" min="0" max="1" step="0.1" value="0.3">
+                <audio id="windAudio" loop src="https://assets.mixkit.co/active_storage/sfx/2555/2555-preview.mp3"></audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
